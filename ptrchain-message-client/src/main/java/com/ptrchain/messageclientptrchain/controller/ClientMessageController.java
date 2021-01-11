@@ -18,20 +18,22 @@ public class ClientMessageController {
 
     /**
      * 调用读取队列
+     *
      * @param qName
      * @return
      */
     @GetMapping("/get")
     public Result getMessage(@RequestParam String qName) {
-      return   consumerService.getMessageByProvide(qName);
+        return consumerService.getMessageByProvide(qName);
     }
 
     /**
      * 调用增加队列
+     *
      * @return
      */
     @GetMapping("/add")
     public Result addMessage() {
-        return   consumerService.postMessageByProvide();
+        return consumerService.postMessageByProvide();
     }
 }
