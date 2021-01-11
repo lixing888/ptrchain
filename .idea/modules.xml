@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ptrchain-message-center/common/common.iml" filepath="$PROJECT_DIR$/ptrchain-message-center/common/common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/ptrchain.iml" filepath="$PROJECT_DIR$/.idea/ptrchain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ptrchain-message-center/ptrchain-message-center.iml" filepath="$PROJECT_DIR$/ptrchain-message-center/ptrchain-message-center.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ptrchain-message-center/server/ptrchain-message-center (1) (com.ptrchain).iml" filepath="$PROJECT_DIR$/ptrchain-message-center/server/ptrchain-message-center (1) (com.ptrchain).iml" />
+      <module fileurl="file://$PROJECT_DIR$/ptrchain-message-center/server/ptrchain-message-center-server.iml" filepath="$PROJECT_DIR$/ptrchain-message-center/server/ptrchain-message-center-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ptrchain-message-client/ptrchain-message-client.iml" filepath="$PROJECT_DIR$/ptrchain-message-client/ptrchain-message-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ptrchain-parent/ptrchain-parent.iml" filepath="$PROJECT_DIR$/ptrchain-parent/ptrchain-parent.iml" />
+    </modules>
+  </component>
+</project>
