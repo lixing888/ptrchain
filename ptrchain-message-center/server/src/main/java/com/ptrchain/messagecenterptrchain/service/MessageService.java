@@ -4,8 +4,11 @@ package com.ptrchain.messagecenterptrchain.service;
 import com.ptrchain.messagecenterptrchain.exception.NoQnameException;
 
 public interface MessageService {
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> e4b33fa0210e054af000922949131a1b4aef4972
     /**
      * 生成队列
      * @param qName 队列名称
@@ -28,6 +31,7 @@ public interface MessageService {
      */
     public Object getMessage(String qName);
 
+<<<<<<< HEAD
     /**
      * 同步方式取队列消息
      * @param qName
@@ -36,4 +40,6 @@ public interface MessageService {
      */
     public Object getMessage(String qName, long waitTime);
 
+=======
+>>>>>>> e4b33fa0210e054af000922949131a1b4aef4972
 }

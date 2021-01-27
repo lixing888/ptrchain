@@ -15,6 +15,9 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
+<<<<<<< HEAD
 
+=======
+>>>>>>> e4b33fa0210e054af000922949131a1b4aef4972
     </dependencies>
 </project>

@@ -16,7 +16,10 @@
 
 	<properties>
 		<java.version>1.8</java.version>
+<<<<<<< HEAD
 		<ptrchain.common.version>1.0-SNAPSHOT</ptrchain.common.version>
+=======
+>>>>>>> e4b33fa0210e054af000922949131a1b4aef4972
 	</properties>
 
 	<dependencies>
@@ -30,11 +33,15 @@
 			<artifactId>ptrchain-message-center-common</artifactId>
 			<version>1.0-SNAPSHOT</version>
 		</dependency>
+<<<<<<< HEAD
 		<dependency>
 			<groupId>com.ptrchain</groupId>
 			<artifactId>ptrchain-common-result</artifactId>
 			<version>${ptrchain.common.result.version}</version>
 		</dependency>
+=======
+
+>>>>>>> e4b33fa0210e054af000922949131a1b4aef4972
 		<dependency>
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpcore</artifactId>
@@ -55,7 +62,10 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+<<<<<<< HEAD
 
+=======
+>>>>>>> e4b33fa0210e054af000922949131a1b4aef4972
 	</dependencies>
 
 	<build>
@@ -63,7 +73,10 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+<<<<<<< HEAD
 				<version>2.3.3.RELEASE</version>
+=======
+>>>>>>> e4b33fa0210e054af000922949131a1b4aef4972
 				<configuration>
 					<excludes>
 						<exclude>
@@ -75,4 +88,8 @@
 			</plugin>
 		</plugins>
 	</build>
+<<<<<<< HEAD
+=======
+
+>>>>>>> e4b33fa0210e054af000922949131a1b4aef4972
 </project>

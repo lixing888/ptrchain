@@ -1,5 +1,6 @@
 package com.ptrchain.messagecenterptrchain.service.impl;
 
+<<<<<<< HEAD
 import com.alibaba.fastjson.JSONObject;
 import com.ptrchain.common.utils.date.DateUtils;
 import com.ptrchain.messagecenterptrchain.config.MessageConfig;
@@ -52,11 +53,30 @@ public class MessageServiceImpl implements MessageService {
             }
         }
     }
+=======
+import com.ptrchain.messagecenterptrchain.exception.NoQnameException;
+import com.ptrchain.messagecenterptrchain.service.MessageService;
+import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
+
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.LinkedBlockingDeque;
+
+@Service
+public class MessageServiceImpl implements MessageService {
+    //记录不同队列
+    static private ConcurrentHashMap<String,LinkedBlockingDeque> queueMap = new ConcurrentHashMap();
+>>>>>>> e4b33fa0210e054af000922949131a1b4aef4972
 
     @Override
     public boolean createQueue(String qName) throws NoQnameException {
         //生成存放消息队列对象
+<<<<<<< HEAD
         if (StringUtils.isEmpty(qName)) {
+=======
+        if(StringUtils.isEmpty(qName))
+        {
+>>>>>>> e4b33fa0210e054af000922949131a1b4aef4972
             throw new NoQnameException("队列名字不能是空！");
         }
         LinkedBlockingDeque<Object> messageQueue = new LinkedBlockingDeque<>();
@@ -66,13 +86,20 @@ public class MessageServiceImpl implements MessageService {
 
     @Override
     public boolean putMessage(String qName, Object message) throws NoQnameException {
+<<<<<<< HEAD
         boolean isPutSuccess = false;
         if (StringUtils.isEmpty(qName)) {
+=======
+
+        if(StringUtils.isEmpty(qName))
+        {
+>>>>>>> e4b33fa0210e054af000922949131a1b4aef4972
             throw new NoQnameException("队列名字不能是空！");
         }
         LinkedBlockingDeque<Object> messageQueue = queueMap.get(qName);
         if (messageQueue == null) {
             //生成存放消息队列对象
+<<<<<<< HEAD
             messageQueue = new LinkedBlockingDeque<>(queueMaxNums);
             queueMap.put(qName, messageQueue);
         }
@@ -87,12 +114,20 @@ public class MessageServiceImpl implements MessageService {
         log.info("放消息队列:{} 放入是否成功:{},放入后消息数量:{}", qName, isPutSuccess, queueMap.get(qName).size());
 
         return isPutSuccess;
+=======
+            messageQueue = new LinkedBlockingDeque<>();
+            queueMap.put(qName, messageQueue);
+        }
+        //放入消息
+        return  queueMap.get(qName).offer(message);
+>>>>>>> e4b33fa0210e054af000922949131a1b4aef4972
 
     }
 
     @Override
     public Object getMessage(String qName) {
         //取得消息
+<<<<<<< HEAD
         Object message = null;
 
 
@@ -140,4 +175,15 @@ public class MessageServiceImpl implements MessageService {
     }
 
 
+=======
+        LinkedBlockingDeque<Object> messageQueue = queueMap.get(qName);
+        if(messageQueue!=null)
+        {
+            return queueMap.get(qName).poll();
+        }
+        else
+            return null;
+
+    }
+>>>>>>> e4b33fa0210e054af000922949131a1b4aef4972
 }

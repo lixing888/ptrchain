@@ -27,6 +27,7 @@
               <artifactId>ptrchain-message-center-common</artifactId>
               <version>${ptrchain.common.version}</version>
           </dependency>
+<<<<<<< HEAD
 
           <dependency>
               <groupId>com.ptrchain</groupId>
@@ -38,6 +39,8 @@
               <artifactId>ptrchain-util</artifactId>
               <version>${ptrchain.utils.version}</version>
           </dependency>
+=======
+>>>>>>> e4b33fa0210e054af000922949131a1b4aef4972
       </dependencies>
   </dependencyManagement>
 </project>

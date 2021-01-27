@@ -4,10 +4,17 @@
     <output url="file://$MODULE_DIR$/target/classes" />
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
     <content url="file://$MODULE_DIR$">
+<<<<<<< HEAD
+=======
+      <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
+>>>>>>> e4b33fa0210e054af000922949131a1b4aef4972
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+<<<<<<< HEAD
     <orderEntry type="library" name="Maven: io.swagger:swagger-annotations:1.5.13" level="project" />
     <orderEntry type="library" name="Maven: io.minio:minio:6.0.7" level="project" />
     <orderEntry type="library" name="Maven: com.google.http-client:google-http-client-xml:1.20.0" level="project" />
@@ -93,5 +100,7 @@
     <orderEntry type="library" name="Maven: io.javaslang:javaslang-match:2.0.5" level="project" />
     <orderEntry type="library" name="Maven: ch.netzwerg:paleo-core:0.10.2" level="project" />
     <orderEntry type="library" name="Maven: com.alibaba:fastjson:1.2.60" level="project" />
+=======
+>>>>>>> e4b33fa0210e054af000922949131a1b4aef4972
   </component>
 </module>

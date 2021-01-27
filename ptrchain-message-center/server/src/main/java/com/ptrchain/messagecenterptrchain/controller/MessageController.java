@@ -1,5 +1,6 @@
 package com.ptrchain.messagecenterptrchain.controller;
 
+<<<<<<< HEAD
 import com.ptrchain.common.result.BasicCodeMsg;
 import com.ptrchain.common.result.Result;
 import com.ptrchain.messagecenter.common.dto.MessageObj;
@@ -8,11 +9,21 @@ import com.ptrchain.messagecenterptrchain.service.MessageService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+=======
+import com.ptrchain.messagecenter.common.dto.MessageObj;
+import com.ptrchain.messagecenter.common.dto.Result;
+import com.ptrchain.messagecenterptrchain.exception.NoQnameException;
+import com.ptrchain.messagecenterptrchain.service.MessageService;
+>>>>>>> e4b33fa0210e054af000922949131a1b4aef4972
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+<<<<<<< HEAD
 @Api("消息中心接口")
+=======
+
+>>>>>>> e4b33fa0210e054af000922949131a1b4aef4972
 @RestController
 @RequestMapping("/message")
 @Slf4j
@@ -25,6 +36,7 @@ public class MessageController {
      * @param messageObj 消息对象
      * @return
      */
+<<<<<<< HEAD
     @ApiOperation(value = "发送消息到队列", notes = "发送消息到队列", tags = "消息中心接口")
     @PostMapping
     public Result<String> putMessage(@RequestBody @ApiParam("消息对象") MessageObj messageObj)  {
@@ -35,6 +47,22 @@ public class MessageController {
         } catch (NoQnameException e) {
             return Result.error(BasicCodeMsg.SERVER_ERROR, e);
         }
+=======
+    @PostMapping
+    public Result putMessage(@RequestBody MessageObj messageObj)  {
+        Result result = new Result();
+        result.setData(null);
+        try {
+            messageService.putMessage(messageObj.getQname(), messageObj.getMessage());
+            result.setSuccess(true);
+            result.setQName(messageObj.getQname());
+        } catch (NoQnameException e) {
+            result.setTrace(e.getMessage());
+            result.setSuccess(false);
+        }
+
+        return result;
+>>>>>>> e4b33fa0210e054af000922949131a1b4aef4972
     }
 
     /**
@@ -42,6 +70,7 @@ public class MessageController {
      * @param qName 队列名字
      * @return
      */
+<<<<<<< HEAD
     @ApiOperation(value = "读取消息到队列", notes = "读取消息到队列", tags = "消息中心接口")
     @GetMapping
     public Result<MessageObj> getMessage(@RequestParam @ApiParam("队列名称") String qName) {
@@ -78,5 +107,22 @@ public class MessageController {
         messageObj.setMessage(message);
         messageObj.setQname(qName);
         return Result.success(messageObj);
+=======
+    @GetMapping
+    public Result getMessage(@RequestParam String qName) {
+      Object message= messageService.getMessage(qName);
+
+        Result result = new Result();
+        result.setData(message);
+        if(message!=null) {
+            result.setSuccess(true);
+            result.setQName(qName);
+        }
+        else
+        {
+            result.setSuccess(false);
+        }
+        return result;
+>>>>>>> e4b33fa0210e054af000922949131a1b4aef4972
     }
 }

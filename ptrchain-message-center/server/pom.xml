@@ -30,6 +30,7 @@
             <artifactId>lombok</artifactId>
         </dependency>
         <dependency>
+<<<<<<< HEAD
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
             <version>1.2.3</version>
@@ -39,6 +40,8 @@
             <artifactId>ptrchain-util</artifactId>
         </dependency>
         <dependency>
+=======
+>>>>>>> e4b33fa0210e054af000922949131a1b4aef4972
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>

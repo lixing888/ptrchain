@@ -2,9 +2,13 @@ spring:
   application:
     name: myservice
 server:
+<<<<<<< HEAD
   port: 9981
 ptrchain:
   queue:
     maxnums: 1000
     isLoadNotSendMessage: true
     messagePath: ./queue.txt
+=======
+  port: 9981
+>>>>>>> e4b33fa0210e054af000922949131a1b4aef4972

@@ -1,5 +1,6 @@
 package com.ptrchain.messagecenter.common.dto;
 
+<<<<<<< HEAD
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -13,4 +14,12 @@ public class MessageObj {
    private Object message;
 
 
+=======
+import lombok.Data;
+
+@Data
+public class MessageObj {
+   private String qname;
+   private Object message;
+>>>>>>> e4b33fa0210e054af000922949131a1b4aef4972
 }

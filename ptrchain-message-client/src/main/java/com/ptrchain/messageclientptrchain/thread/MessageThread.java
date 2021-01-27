@@ -1,8 +1,12 @@
 package com.ptrchain.messageclientptrchain.thread;
 
+<<<<<<< HEAD
 import com.alibaba.fastjson.JSON;
 import com.ptrchain.common.result.Result;
 import com.ptrchain.messagecenter.common.dto.MessageObj;
+=======
+import com.ptrchain.messagecenter.common.dto.Result;
+>>>>>>> e4b33fa0210e054af000922949131a1b4aef4972
 import com.ptrchain.messageclientptrchain.service.ConsumerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
@@ -18,6 +22,7 @@ public class MessageThread {
     @Async
     public void   getMessage(String qName) throws InterruptedException {
         //循环读消息，每2秒读一次
+<<<<<<< HEAD
 
         Result<MessageObj> result=null;
         while (true) {
@@ -43,6 +48,13 @@ public class MessageThread {
             result=  consumerService.getMessageByProvide(qName,waitTime);
             Thread.sleep(1000);
             System.out.println("get message result:"+ JSON.toJSONString(result));
+=======
+        Result result;
+        while (true) {
+            result=  consumerService.getMessageByProvide(qName);
+            Thread.sleep(2000);
+            System.out.println("get message result:"+result);
+>>>>>>> e4b33fa0210e054af000922949131a1b4aef4972
         }
     }
 
@@ -53,6 +65,7 @@ public class MessageThread {
     @Async
     public void addMessage(String qName) throws InterruptedException {
         //增加100个消息到队列中
+<<<<<<< HEAD
         Result<MessageObj> result;
         for (int i = 0; i < 2; i++) {
             result= consumerService.postMessageByProvide(i, qName);
@@ -79,6 +92,13 @@ public class MessageThread {
             result= consumerService.postMessageByProvide(i, qName);
             //Thread.sleep(500);
             // System.out.println("put message result:"+result);
+=======
+        Result result;
+        for (int i = 0; i < 100; i++) {
+            result= consumerService.postMessageByProvide(i, qName);
+            //Thread.sleep(500);
+           // System.out.println("put message result:"+result);
+>>>>>>> e4b33fa0210e054af000922949131a1b4aef4972
         }
 
     }
