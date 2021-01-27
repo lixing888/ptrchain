@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: myservice
+server:
+  port: 9981
+ptrchain:
+  queue:
+    maxnums: 1000
+    isLoadNotSendMessage: true
+    messagePath: ./queue.txt

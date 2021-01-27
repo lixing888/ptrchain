@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.3.3.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <properties>
+        <httpcore.Version>4.4.10</httpcore.Version>
+        <httpclient.Version>4.5.6</httpclient.Version>
+        <fastjson.version>1.2.60</fastjson.version>
+        <lombok.version>1.18.6</lombok.version>
+        <swagger.version>2.7.0</swagger.version>
+        <minio.version>6.0.7</minio.version>
+        <ptrchain.common.version>4.0.0</ptrchain.common.version>
+        <ptrchain.common.result.version>4.0.0</ptrchain.common.result.version>
+        <ptrchain.utils.version>4.0.0</ptrchain.utils.version>
+        <mybatisplus.version>3.1.1</mybatisplus.version>
+        <mybatisplus.spring.boot.version>1.0.5</mybatisplus.spring.boot.version>
+        <!--swagger2相关 -->
+        <swagger2markup.maven.plugin.version>1.3.1</swagger2markup.maven.plugin.version>
+        <asciidoctor.maven.plugin.version>1.5.6</asciidoctor.maven.plugin.version>
+        <asciidoctorj.pdf.version>1.5.0-alpha.16</asciidoctorj.pdf.version>
+        <swagger-annotations.version>1.5.13</swagger-annotations.version>
+        <jruby.complete.version>9.0.5.0</jruby.complete.version>
+
+        <asciidoctor.input.directory>${project.basedir}/docs/asciidoc</asciidoctor.input.directory>
+        <generated.asciidoc.directory>src/docs/asciidoc</generated.asciidoc.directory>
+        <asciidoctor.html.output.directory>${generated.asciidoc.directory}/html</asciidoctor.html.output.directory>
+        <asciidoctor.pdf.output.directory>${generated.asciidoc.directory}/asciidoc/pdf</asciidoctor.pdf.output.directory>
+
+        <!--spring-cloud 版本-->
+        <spring-cloud.version>Hoxton.SR2</spring-cloud.version>
+    </properties>
+
+    <groupId>com.ptrchain</groupId>
+    <artifactId>ptrchain-parent</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-annotations</artifactId>
+            <version>${swagger-annotations.version}</version>
+        </dependency>
+        <!-- minio -->
+        <dependency>
+            <groupId>io.minio</groupId>
+            <artifactId>minio</artifactId>
+            <version>${minio.version}</version>
+        </dependency>
+        <!--swagger2-->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${swagger.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${swagger.version}</version>
+        </dependency>
+        <!--  swagger导出PDF/HTML所需依赖 -->
+        <dependency>
+            <groupId>io.github.swagger2markup</groupId>
+            <artifactId>swagger2markup</artifactId>
+            <version>1.3.1</version>
+        </dependency>
+
+        <!-- fastjson -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson.version}</version>
+        </dependency>
+
+
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpcore</artifactId>
+                <version>${httpcore.Version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${httpclient.Version}</version>
+            </dependency>
+            <!--alibaba easyexcel-->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>easyexcel</artifactId>
+                <version>2.2.7</version>
+            </dependency>
+            <!-- mybatis-plus -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus</artifactId>
+                <version>${mybatisplus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatisplus.version}</version>
+            </dependency>
+
+            <!-- fastjson -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+            <!-- lombok -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+    <!-- 配置pom信息在项目中可读-->
+    <build>
+
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+
+        <plugins>
+
+            <!--此插件生成ASCIIDOC-->
+            <plugin>
+                <groupId>io.github.swagger2markup</groupId>
+                <artifactId>swagger2markup-maven-plugin</artifactId>
+                <version>1.3.1</version>
+                <configuration>
+                    <swaggerInput>http://localhost:${application.port}/v2/api-docs</swaggerInput>
+                    <outputDir>src/docs/asciidoc/generated</outputDir>
+                    <config>
+                        <swagger2markup.markupLanguage>ASCIIDOC</swagger2markup.markupLanguage>
+                    </config>
+                </configuration>
+            </plugin>
+
+            <!--此插件生成HTML和PDF-->
+            <plugin>
+                <groupId>org.asciidoctor</groupId>
+                <artifactId>asciidoctor-maven-plugin</artifactId>
+                <version>${asciidoctor.maven.plugin.version}</version>
+                <!-- Include Asciidoctor PDF for pdf generation -->
+                <dependencies>
+                    <dependency>
+                        <groupId>org.asciidoctor</groupId>
+                        <artifactId>asciidoctorj-pdf</artifactId>
+                        <version>${asciidoctorj.pdf.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.jruby</groupId>
+                        <artifactId>jruby-complete</artifactId>
+                        <version>${jruby.complete.version}</version>
+                    </dependency>
+                </dependencies>
+                <!-- Configure generic document generation settings -->
+                <configuration>
+                    <sourceDirectory>src/docs/asciidoc/generated</sourceDirectory>
+                    <sourceHighlighter>coderay</sourceHighlighter>
+                    <attributes>
+                        <toc>left</toc>
+                    </attributes>
+                </configuration>
+                <!-- Since each execution can only handle one backend, run
+                     separate executions for each desired output type -->
+                <executions>
+                    <execution>
+                        <id>output-html</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>process-asciidoc</goal>
+                        </goals>
+                        <configuration>
+                            <backend>html5</backend>
+                            <outputDirectory>src/docs/asciidoc/html</outputDirectory>
+                        </configuration>
+                    </execution>
+
+                    <execution>
+                        <id>output-pdf</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>process-asciidoc</goal>
+                        </goals>
+                        <configuration>
+                            <backend>pdf</backend>
+                            <outputDirectory>src/docs/asciidoc/pdf</outputDirectory>
+                        </configuration>
+                    </execution>
+
+                </executions>
+            </plugin>
+
+        </plugins>
+
+    </build>
+
+</project>
